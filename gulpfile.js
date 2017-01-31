@@ -21,7 +21,7 @@ gulp.task('inject', function () {
         directory: './public/lib',
         ignorePath: "../public"
     };
-    return gulp.src('./views/layout.ejs')
+    return gulp.src('./views/*.ejs')
         .pipe(wiredep(options))
         .pipe(inject(injectSrc, injectOptions))
         .pipe(gulp.dest('./views/'));

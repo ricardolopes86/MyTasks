@@ -1,11 +1,98 @@
-<%- contentFor('main') %>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- bower:css -->
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="/lib/fullcalendar/dist/fullcalendar.css" />
+    <!-- endbower -->
+    <!-- bower:js -->
+    <script src="/lib/jquery/dist/jquery.js"></script>
+    <script src="/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="/lib/moment/moment.js"></script>
+    <script src="/lib/fullcalendar/dist/fullcalendar.js"></script>
+    <!-- endbower -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <!-- endinject -->
+    <!-- inject:js -->
+    <!-- endinject -->
+    <title>Minhas Tarefas</title>
+    <script !src="">
+        $(document).ready(function() {
+
+            // page is now ready, initialize the calendar...
+
+            $('#calendar').fullCalendar({
+                // put your options and callbacks here
+            })
+
+        });
+    </script>
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">
+                    <span class="fa fa-calendar-check-o" aria-hidden="true" style="display: block"></span>
+                </a>
+
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <form class="navbar-form navbar-right">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Username">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" placeholder="Password">
+                    </div>
+                    <button type="submit" class="btn btn-default">Login</button>
+                </form>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/adicionar"><i class="glyphicon glyphicon-plus" aria-hidden="true"></i> Add Tarefa</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
 <main class="container">
     <div class="row">
-        <div class="col-md-4">
-            <h2>Menu Lateral</h2>
+        <div><p> </p></div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="panel panel-danger">
+                <div class="panel-heading">Menu</div>
+                <div class="panel-body">
+                    <ul class="nav nav-pills nav-stacked">
+                        <li role="presentation"><a href="/">Início</a></li>
+                        <li role="presentation"><a href="#">Hoje</a></li>
+                        <li role="presentation"><a href="#">Próximos 7 dias</a></li>
+                        <li role="presentation">
+                            <hr></li>
+                        <li role="presentation"><a href="/calendario">Calendário</a></li>
+
+                    </ul>
+                </div>
+            </div>
         </div>
-        <div class="col-md-8">
-            <h2>Tarefas</h2>
+        <div class="col-md-9">
+            <div class="panel panel-default">
+                <div class="panel-heading">Tarefas</div>
+                <div class="panel-body">
+                    <p>Lista de Tarefas</p>
+                </div>
+            </div>
         </div>
     </div>
 </main>
+
+</body>
+</html>
