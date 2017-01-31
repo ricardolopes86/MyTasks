@@ -14,3 +14,7 @@ a {
 .box{
     background-color: gray;
 }
+
+.nav-pills li a{
+    color: #000;
+}

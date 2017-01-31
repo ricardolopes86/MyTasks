@@ -50,10 +50,17 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <form class="navbar-form navbar-right">
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Username">
+                        <div class="input-group"><input type="text" class="form-control" placeholder="Username">
+                            <span class="input-group-addon">
+                                <span class="fa fa-user-circle-o"></span>
+                            </span>
+                        </div>
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control" placeholder="Password">
+                        <div class="input-group"><input type="password" class="form-control" placeholder="Password">
+                            <span class="input-group-addon">
+                                <span class="fa fa-asterisk"></span>
+                            </span></div>
                     </div>
                     <button type="submit" class="btn btn-default">Login</button>
                 </form>
@@ -75,12 +82,12 @@
                 <div class="panel-heading">Menu</div>
                 <div class="panel-body">
                     <ul class="nav nav-pills nav-stacked">
-                        <li role="presentation"><a href="/">Início</a></li>
-                        <li role="presentation"><a href="#">Hoje</a></li>
-                        <li role="presentation"><a href="#">Próximos 7 dias</a></li>
+                        <li role="presentation"><a href="/"><i class="fa fa-home" aria-hidden="true"></i> Início</a></li>
+                        <li role="presentation"><a href="/hoje"><i class="fa fa-bullseye" aria-hidden="true"></i> Hoje</a></li>
+                        <li role="presentation"><a href="/proximos"><i class="fa fa-forward" aria-hidden="true"></i> Próximos 7 dias</a></li>
                         <li role="presentation">
                             <hr></li>
-                        <li role="presentation"><a href="/calendario">Calendário</a></li>
+                        <li role="presentation"><a href="/calendario"><i class="fa fa-calendar-o" aria-hidden="true"></i> Calendário</a></li>
 
                     </ul>
                 </div>

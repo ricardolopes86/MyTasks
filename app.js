@@ -8,6 +8,8 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 var calendario = require('./routes/calendario');
 var adicionar = require('./routes/adicionar');
+var hoje = require('./routes/hoje');
+var proximos = require('./routes/proximos');
 
 var app = express();
 
@@ -27,6 +29,8 @@ app.use('/', index);
 app.use('/users', users);
 app.use('/calendario', calendario);
 app.use('/adicionar', adicionar);
+app.use('/proximos', proximos);
+app.use('/hoje', hoje);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
