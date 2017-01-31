@@ -17,7 +17,8 @@
   "dependencies": {
     "bootstrap": "^3.3.7",
     "font-awesome": "^4.7.0",
-    "fullcalendar": "^3.1.0"
+    "fullcalendar": "^3.1.0",
+    "eonasdan-bootstrap-datetimepicker": "^4.17.45"
   },
   "overrides": {
     "bootstrap": {
