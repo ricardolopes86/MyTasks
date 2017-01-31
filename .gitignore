@@ -1,2 +1,8 @@
-node_modules
-.idea
+node_modules/
+.idea/
+public/images/
+public/javascripts/
+public/lib/eonasdan-bootstrap-datetimepicker/
+public/lib/fullcalendar/
+public/lib/moment/
+public/lib/tether/
