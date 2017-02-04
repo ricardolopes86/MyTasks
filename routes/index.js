@@ -3,6 +3,14 @@ var passport = require('passport');
 var router = express.Router();
 
 /* GET home page. */
+
+router.all('*', function(req,res,next) {
+    if (req.path === '/' || req.path === '/signup' || req.path === '/login')
+        next();
+    else
+        isLoggedIn(req,res,next);
+});
+
 router.get('/', function(req, res, next) {
     res.render('login', { message: req.flash('loginMessage') });
 });
