@@ -1,12 +1,9 @@
 <% include partials/header %>
 <main class="container">
-    <div class="row">
-        <div><p> </p></div>
-    </div>
-    <div class="col-sm-8 col-sm-offset-2">
+    <div class="col-sm-6 col-sm-offset-3">
         <div class="jumbotron text-center">
-            <h1><span class="fa fa-sign-in"></span> Login</h1>
-
+            <i class="fa fa-user-circle-o fa-5x" aria-hidden="true"></i>
+            <h1>Credentials</h1>
             <% if (message != null) { %>
             <div class="alert-danger"><%= message %></div>
             <% } %>
@@ -20,14 +17,11 @@
                     <label>Password</label>
                     <input type="password" class="form-control" name="password" />
                 </div>
-                <div>
-                    <input type="submit" class="form-control" value="Submit" />
+                <div class="right">
+                    <button type="submit" class="btn btn-default btn-lg">Login</button>
                 </div>
             </form>
         </div>
-        <hr>
-        <span class="fa fa-sign-in"> Don't have an account?<a href="/signup"> Signup</a></span>
-        <p>Or go <a href="/">home</a>.</p>
     </div>
 </main>
 

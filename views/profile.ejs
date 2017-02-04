@@ -1,22 +1,29 @@
 <% include partials/header %>
+<% include partials/nav %>
 <main class="container">
     <div class="row">
         <div><p> </p></div>
     </div>
     <div class="row">
-        <div class="col-sm-8 col-sm-offset-2">
-            <div class="text-center">
-                <h1 class=" fa fa-user"> Profile</h1><br>
-                <span><strong>user id</strong>: <%= user._id ? user._id : '' %></span><br>
-                <span class="fa fa-sign-out"><a href="/"> Sign out</a></span>
-                <hr>
-                <div class="jumbotron">
-                    <% if (user.local.email != null) { %>
-                    <img src="https://avatars.io/gravatar/<%= user.local.email %>" class="img-circle"><br>
-                    <strong>email</strong>: <%= user.local.email %><br>
-                    <% } %>
+        <div class="col-md-4">
+            <div class="panel panel-danger">
+                <div class="panel-heading">
+                    Detalhes do Usuário
+                </div>
+                <div class="panel-body">
+                    <span><strong>user id</strong>: <%= user._id ? user._id : '' %></span>
                 </div>
             </div>
+            <div class="jumbotron text-center">
+                <% if (user.local.email != null) { %>
+                <img src="https://avatars.io/gravatar/<%= user.local.email %>" class="img-circle"><br>
+                <strong>Email</strong>: <%= user.local.email %><br>
+                <% } %>
+            </div>
+        </div>
+
+        <div class="col-md-8">
+
         </div>
     </div>
 </main>

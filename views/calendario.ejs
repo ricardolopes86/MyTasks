@@ -1,25 +1,11 @@
 <% include partials/header %>
+<% include partials/nav %>
 <main class="container">
     <div class="row">
         <div><p> </p></div>
     </div>
     <div class="row">
-        <div class="col-md-3">
-            <div class="panel panel-danger">
-                <div class="panel-heading">Menu</div>
-                <div class="panel-body">
-                    <ul class="nav nav-pills nav-stacked">
-                        <li role="presentation"><a href="/"><i class="fa fa-home" aria-hidden="true"></i> Início</a></li>
-                        <li role="presentation"><a href="/hoje"><i class="fa fa-bullseye" aria-hidden="true"></i> Hoje</a></li>
-                        <li role="presentation"><a href="/proximos"><i class="fa fa-forward" aria-hidden="true"></i> Próximos 7 dias</a></li>
-                        <li role="presentation">
-                            <hr></li>
-                        <li role="presentation"><a href="/calendario"><i class="fa fa-calendar-o" aria-hidden="true"></i> Calendário</a></li>
-
-                    </ul>
-                </div>
-            </div>
-        </div>
+        <% include partials/menu %>
         <div class="col-md-9">
             <div id="calendar"></div>
         </div>

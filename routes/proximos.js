@@ -1,4 +1,5 @@
 var express = require('express');
+var passport = require('passport');
 var router = express.Router();
 
 /* GET home page. */
@@ -11,7 +12,10 @@ router.get('/', function(req, res, next) {
         next();
     });
 
-  res.render('proximos', {title: "Tarefas para os Próximos Dias"});
+  res.render('proximos', {
+      title: "Tarefas para os Próximos Dias",
+      user: req.user
+  });
 });
 
 module.exports = router;

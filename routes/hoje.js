@@ -1,4 +1,5 @@
 var express = require('express');
+var passport = require('passport');
 var router = express.Router();
 
 /* GET users listing. */
@@ -11,7 +12,10 @@ router.get('/', function(req, res, next) {
         next();
     });
 
-  res.render('hoje', {title: "Atividades para Hoje"});
+  res.render('hoje', {
+      title: "Atividades para Hoje",
+      user: req.user
+  });
 });
 
 module.exports = router;

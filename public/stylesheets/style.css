@@ -18,3 +18,10 @@ a {
 .nav-pills li a{
     color: #000;
 }
+
+.navbar img {
+    position: absolute;
+    top: 5px;
+    width: 40px;
+    display: block;
+}
