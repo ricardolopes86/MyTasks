@@ -1,21 +1,10 @@
 var express = require('express');
-var passport = require('passport');
+var taskController = require('../controllers/task.controller');
 var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-
-    router.use(function (rea, res, next) {
-        if (!req.user){
-            res.redirect('/auth');
-        }
-        next();
-    });
-
-  res.render('proximos', {
-      title: "Tarefas para os Próximos Dias",
-      user: req.user
-  });
+    return taskController.listSevenDays(req, res);
 });
 
 module.exports = router;

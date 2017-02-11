@@ -10,7 +10,20 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Tarefas</div>
                 <div class="panel-body">
-                    <p>Lista de Tarefas</p>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h4><% if (tarefas) { %></h4>
+                        </div>
+                        <div class="col-md-2 col-sm-offset-6">
+                            <a href="#" data-toggle="tooltip" data-placement="top" title="Concluir a tarefa"><i class="fa fa-check-square" aria-hidden="true"></i></a>
+                            <a href="#" data-toggle="tooltip" data-placement="top" title="Deleter a tarefa"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                        </div>
+                        <% } else { %>
+                            <div class="col-md-12">
+                                <h4>Nenhuma atividade encontrada.</h4>
+                            </div>
+                        <% } %>
+                    </div>
                 </div>
             </div>
         </div>

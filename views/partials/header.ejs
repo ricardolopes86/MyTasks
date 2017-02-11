@@ -18,7 +18,6 @@
     <script src="/lib/jquery/dist/jquery.js"></script>
     <script src="/lib/bootstrap/dist/js/bootstrap.js"></script>
     <script src="/lib/moment/moment.js"></script>
-    <script src="/lib/moment/locale/pt-br.js"></script>
     <script src="/lib/fullcalendar/dist/fullcalendar.js"></script>
     <script src="/lib/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
     <!-- endbower -->
@@ -39,10 +38,14 @@
         });
         $(function () {
             $('#datetimepicker1').datetimepicker({
-                locale: 'pt-br'
             });
 
         });
+
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        });
+
     </script>
 </head>
 <body>

@@ -1,3 +1,3 @@
 module.exports = {
-    url: 'mongodb://localhost/mytasks'
+    url: 'mongodb://mytasks-user:mU873PP&dRad@ds139869.mlab.com:39869/mytasks'
 };

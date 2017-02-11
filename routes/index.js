@@ -1,23 +1,24 @@
 var express = require('express');
 var passport = require('passport');
+var mongoose = require('mongoose');
+var taskController = require('../controllers/task.controller');
 var router = express.Router();
 
 /* GET home page. */
 
-router.all('*', function(req,res,next) {
-    if (req.path === '/' || req.path === '/signup' || req.path === '/login')
-        next();
-    else
-        isLoggedIn(req,res,next);
-});
+// router.all('*', function(req,res,next) {
+//     if (req.path === '/' || req.path === '/signup' || req.path === '/login')
+//         next();
+//     else
+//         isLoggedIn(req,res,next);
+// });
 
 router.get('/', function(req, res, next) {
     res.render('login', { message: req.flash('loginMessage') });
 });
 
 router.get('/home', function(req, res, next) {
-
-    res.render('index', {title: "Minhas Tarefas", user: req.user});
+    return taskController.list(req, res);
 });
 router.get('/login', function(req, res, next) {
     res.render('login', { message: req.flash('loginMessage') });
@@ -47,6 +48,18 @@ router.post('/login', passport.authenticate('local-login', {
     failureRedirect: '/login',
     failureFlash: true
 }));
+
+router.post('/adicionar', function (req, res) {
+    return taskController.create(req, res);
+});
+
+router.delete('/tarefa/delete/:id', function (req, res) {
+    return taskController.deleteTask(req, res);
+});
+
+router.get('/tarefa/delete/:id', function (req, res) {
+    return taskController.deleteTask(req, res);
+});
 
 module.exports = router;
 
