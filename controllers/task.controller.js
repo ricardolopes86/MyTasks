@@ -3,7 +3,7 @@ var Tarefa = require('../models/task');
 exports.list = function (req, res) {
     var query = Tarefa.find();
 
-    query.sort({data: 'desc'})
+    query.sort({data: 'asc'})
         .limit(10)
         .exec(function (err, results) {
             res.render('index', {
@@ -14,12 +14,19 @@ exports.list = function (req, res) {
 };
 
 exports.listToday = function (req, res) {
-    var data = new Date(Date.now);
-    var query = Tarefa.find({data: data});
+    var data = new Date(Date.now());
+    data.setHours(0,0,0,0);
 
-    console.log(query);
+    var data1 = new Date(Date.now());
+    data1.setHours(23,59,59,0);
 
-    query.sort({data: 'desc'})
+    var query = Tarefa.find({
+        data: {
+            $gte: data,
+            $lt:data1
+        }});
+
+    query.sort({data: 'asc'})
         .limit(10)
         .exec(function (err, results) {
             res.render('hoje', {
@@ -30,12 +37,20 @@ exports.listToday = function (req, res) {
 };
 
 exports.listSevenDays = function (req, res) {
-    var targetDate = new Date();
+    var data = new Date(Date.now());
+    data.setHours(0,0,0,0);
+
+    var targetDate = new Date(Date.now());
     targetDate.setDate(targetDate.getDate() + 7);
+    targetDate.setHours(23,59,59,0);
 
-    var query = Tarefa.find( {'$gte': Date.now() , '$lt': targetDate});
+    var query = Tarefa.find({
+        data: {
+            $gte: data,
+            $lt:targetDate
+        }});
 
-    query.sort({data: 'desc'})
+    query.sort({data: 'asc'})
         .limit(10)
         .exec(function (err, results) {
             res.render('proximos', {
