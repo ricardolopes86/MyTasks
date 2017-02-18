@@ -17,6 +17,8 @@ mongoose.connect(configDB.url);
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+var api = require('./routes/api');
+var tarefa = require('./routes/tarefa');
 var calendario = require('./routes/calendario');
 var adicionar = require('./routes/adicionar');
 var hoje = require('./routes/hoje');
@@ -45,8 +47,9 @@ app.use(passport.session());
 require('./config/passport')(passport);
 
 app.use('/', index);
-app.use('/tarefa/:id', index);
+app.use('/tarefa', tarefa);
 app.use('/users', users);
+app.use('/api', api);
 app.use('/calendario', calendario);
 app.use('/adicionar', adicionar);
 app.use('/proximos', proximos);

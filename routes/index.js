@@ -6,12 +6,12 @@ var router = express.Router();
 
 /* GET home page. */
 
- router.all('*', function(req,res,next) {
-     if (req.path === '/' || req.path === '/signup' || req.path === '/login')
-         next();
-     else
-         isLoggedIn(req,res,next);
- });
+// router.all('*', function(req,res,next) {
+//     if (req.path === '/' || req.path === '/signup' || req.path === '/login')
+//         next();
+//     else
+//         isLoggedIn(req,res,next);
+// });
 
 router.get('/', function(req, res, next) {
     res.render('login', { message: req.flash('loginMessage') });
@@ -51,14 +51,6 @@ router.post('/login', passport.authenticate('local-login', {
 
 router.post('/adicionar', function (req, res) {
     return taskController.create(req, res);
-});
-
-router.delete('/tarefa/delete/:id', function (req, res) {
-    return taskController.deleteTask(req, res);
-});
-
-router.get('/tarefa/delete/:id', function (req, res) {
-    return taskController.deleteTask(req, res);
 });
 
 module.exports = router;

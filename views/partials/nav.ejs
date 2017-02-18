@@ -8,17 +8,7 @@
 
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <% if (user.local.email != null) { %>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="dropdown">
-                            <img src="https://avatars.io/gravatar/<%= user.local.email %>" class="dropdown-toggle img-circle" data-toggle="dropdown">
-                            <ul class="dropdown-menu dropdown-menu-left">
-                                <li><a href="/profile">Profile</a></li>
-                                <li><a href="/logout">Logout</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                <% } else { %>
+                <% if (typeof user === 'undefined' || !user) { %>
                 <form class="navbar-form navbar-right" action="/login" method="post">
                     <div class="form-group">
                         <div class="input-group"><input type="text" class="form-control" placeholder="Username">
@@ -35,6 +25,17 @@
                     </div>
                     <button type="submit" class="btn btn-default">Login</button>
                 </form>
+
+                <% } else { %>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <img src="https://avatars.io/gravatar/<%= user.local.email %>" class="dropdown-toggle img-circle" data-toggle="dropdown">
+                        <ul class="dropdown-menu dropdown-menu-left">
+                            <li><a href="/profile">Profile</a></li>
+                            <li><a href="/logout">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
                 <% } %>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="/adicionar"><i class="glyphicon glyphicon-plus" aria-hidden="true"></i> Add Tarefa</a></li>

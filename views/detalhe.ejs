@@ -1,0 +1,27 @@
+<% include partials/header %>
+<% include partials/nav %>
+<main class="container">
+    <div class="row">
+        <div><p> </p></div>
+    </div>
+    <div class="row">
+        <% include partials/menu %>
+        <div class="col-md-9">
+            <div class="panel panel-default">
+                <div class="panel-heading">Tarefas</div>
+                <div class="panel-body">
+                    <div class="col-md-4">
+                        <h4><%= tarefa.titulo %> <small><%= tarefa.data%></small></h4>
+                    </div>
+                    <div class="col-md-2 col-sm-offset-6">
+                        <a href="/tarefa/concluir/<%= tarefa._id%>" data-toggle="tooltip" data-placement="top" title="Concluir a tarefa"><i class="fa fa-check-square" aria-hidden="true"></i></a>
+                        <a href="/tarefa/delete/<%= tarefa._id%>" data-toggle="tooltip" data-placement="top" title="Deleter a tarefa"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+</body>
+</html>

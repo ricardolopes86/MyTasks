@@ -16,7 +16,7 @@
                             <h4><%= tarefas[i].titulo %> <small><%= tarefas[i].data%></small></h4>
                         </div>
                         <div class="col-md-2 col-sm-offset-6">
-                            <a href="#" data-toggle="tooltip" data-placement="top" title="Concluir a tarefa"><i class="fa fa-check-square" aria-hidden="true"></i></a>
+                            <a href="/tarefa/concluir/<%= tarefas[i]._id%>" data-toggle="tooltip" data-placement="top" title="Concluir a tarefa"><i class="fa fa-check-square" aria-hidden="true"></i></a>
                             <a href="/tarefa/delete/<%= tarefas[i]._id%>" data-toggle="tooltip" data-placement="top" title="Deleter a tarefa"><i class="fa fa-trash" aria-hidden="true"></i></a>
                         </div>
                     </div>

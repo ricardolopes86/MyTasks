@@ -10,22 +10,26 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Tarefas</div>
                 <div class="panel-body">
+                    <% if (tarefas.length > 0) { %>
                     <% for(var i=0; i< tarefas.length; i++) { %>
                     <div class="row">
                         <div class="col-md-4">
                             <h4><%= tarefas[i].titulo %> <small><%= tarefas[i].data%></small></h4>
                         </div>
                         <div class="col-md-2 col-sm-offset-6">
-                            <a href="#" data-toggle="tooltip" data-placement="top" title="Concluir a tarefa"><i class="fa fa-check-square" aria-hidden="true"></i></a>
+                            <a href="/tarefa/concluir/<%= tarefas[i]._id%>" data-toggle="tooltip" data-placement="top" title="Concluir a tarefa"><i class="fa fa-check-square" aria-hidden="true"></i></a>
                             <a href="/tarefa/delete/<%= tarefas[i]._id%>" data-toggle="tooltip" data-placement="top" title="Deleter a tarefa"><i class="fa fa-trash" aria-hidden="true"></i></a>
                         </div>
                     </div>
                     <% if (tarefas[i] === tarefas[tarefas.length-1]) { %>
-                    <p></p>
+                        <p></p>
                     <% } else { %>
-                    <hr/>
+                        <hr/>
                     <% } %>
                     <% }; %>
+                    <% } else { %>
+                        <div class="alert alert-danger" role="alert"><strong>Nada encontrado</strong></div>
+                    <% }%>
                 </div>
             </div>
         </div>

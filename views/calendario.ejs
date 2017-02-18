@@ -1,4 +1,72 @@
-<% include partials/header %>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- bower:css -->
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="/lib/fullcalendar/dist/fullcalendar.css" />
+    <link rel="stylesheet" href="/lib/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
+    <!-- endbower -->
+    <!-- inject:js -->
+    <!-- endinject -->
+    <!-- bower:js -->
+    <script src="/lib/jquery/dist/jquery.js"></script>
+    <script src="/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="/lib/moment/moment.js"></script>
+    <script src="/lib/fullcalendar/dist/fullcalendar.js"></script>
+    <script src="/lib/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+    <!-- endbower -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <!-- endinject -->
+
+    <title>Minhas Tarefas</title>
+    <script type="text/javascript">
+        $(function () {
+
+            $('#calendar').fullCalendar({
+                eventClick: function(calEvent, jsEvent, view) {
+
+                    window.location.href = '/tarefa/detalhe/'+calEvent.id;
+
+                    // change the border color just for fun
+                    $(this).css('border-color', 'red');
+
+                },
+                events: [
+                    <% for(var i=0; i< tarefas.length; i++) { %>
+                    {
+                        id: "<%= tarefas[i]._id %>",
+                        title: '<%= tarefas[i].titulo %>',
+                        start: moment('<%= tarefas[i].data %>'),
+                        end: moment('<%= tarefas[i].data %>')
+                    }<% if (tarefas[i] === tarefas[tarefas.length-1]) { %>
+
+                    <% } else { %>,<% } %>
+                    <% } %>
+                ]
+            });
+        });
+
+        $(function () {
+            $('#datetimepicker1').datetimepicker({
+            });
+
+        });
+
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        });
+
+    </script>
+</head>
+<body>
+
 <% include partials/nav %>
 <main class="container">
     <div class="row">

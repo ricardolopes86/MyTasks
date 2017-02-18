@@ -13,6 +13,26 @@ exports.list = function (req, res) {
         });
 };
 
+exports.listTarefa = function (req, res) {
+    var id = req.params.id;
+
+    Tarefa.findById(id, function (err, result) {
+        res.render('detalhe', {
+            tarefa: result,
+            user: req.user
+        });
+        });
+};
+
+exports.listByMonth = function (req, res) {
+    var query = Tarefa.find();
+
+    query.sort({data: 'asc'})
+        .exec(function (err, results) {
+            res.json(results);
+        });
+};
+
 exports.listToday = function (req, res) {
     var data = new Date(Date.now());
     data.setHours(0,0,0,0);
@@ -60,6 +80,29 @@ exports.listSevenDays = function (req, res) {
         });
 };
 
+exports.listCalendar = function (req, res) {
+    // var date = new Date();
+    // var firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
+    // var lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+
+    var query = Tarefa.find();
+
+    // var query = Tarefa.find({
+    //     data: {
+    //         $gte: firstDay,
+    //         $lt:lastDay
+    //     }});
+
+    query.sort({data: 'asc'})
+        .exec(function (err, results) {
+            res.render('calendario', {
+                tarefas: results,
+                user: req.user
+            });
+        });
+};
+
+
 exports.create = function (req, res) {
     var entry = new Tarefa({
         titulo: req.body.titulo,
@@ -67,22 +110,16 @@ exports.create = function (req, res) {
         created_at: req.body.data,
         updated_at: req.body.data
     });
-    console.log(entry);
 
     var Data = new Date(entry.data);
 
     entry.data = Data;
-    console.log(entry.data+"\n"+entry.updated_at+"\n"+entry.created_at);
 
     entry.save(function (err) {
         console.log(err);
     });
     console.log("objeto salvo");
     res.redirect(301, '/home');
-};
-
-exports.getTarefa = function (req, res) {
-    res.render('/index', {user: req.user});
 };
 
 exports.deleteTask = function (req, res) {
@@ -97,5 +134,9 @@ exports.deleteTask = function (req, res) {
         }
     });
 
+
+exports.getTarefa = function (req, res) {
+    res.render('/index', {user: req.user});
+};
 
 };
